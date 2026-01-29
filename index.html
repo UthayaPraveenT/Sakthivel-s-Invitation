@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAKTHIVEL WEDS RADHA</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #6b0f1a, #2a0208 75%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 4 / 5;
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #7a1320, #3a070d);
+      border: 3px solid #d4af37;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    /* internal line pattern */
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(212,175,55,0.07) 0,
+        rgba(212,175,55,0.07) 1px,
+        transparent 1px,
+        transparent 14px
+      );
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* inner gold frame */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 2px solid rgba(212,175,55,0.75);
+      border-radius: 22px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .pattern {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .pattern span {
+      position: absolute;
+      color: rgba(212,175,55,0.22);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(24px, 5vw, 46px);
+      z-index: 2;
+    }
+
+    .invite-screen { display: none; }
+
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      color: #f5d77a;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+    }
+
+    .couple {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 6vw, 3.1rem);
+      color: #f5d77a;
+      margin: clamp(18px, 4vw, 32px) 0;
+      line-height: 1.2;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow:
+        0 4px 10px rgba(0,0,0,0.8),
+        0 0 18px rgba(212,175,55,0.35);
+    }
+
+    .divider {
+      width: min(200px, 60%);
+      height: 2px;
+      background: linear-gradient(to right, transparent, #f5d77a, transparent);
+      margin: 18px auto;
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      color: #ffe9a6;
+      margin-top: 14px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    .info {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: #f7e7b3;
+      margin: 6px 0;
+      letter-spacing: 0.6px;
+    }
+
+    .date { font-weight: 800; color: #fff4c2; }
+
+    .btn {
+      margin-top: clamp(20px, 4vw, 36px);
+      padding: clamp(12px, 3vw, 16px) clamp(30px, 7vw, 46px);
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #d4af37, #fff2b0);
+      color: #3a070d;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    }
+
+    .spark {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      filter: drop-shadow(0 0 6px rgba(212,175,55,0.7));
+      animation: blink 2.8s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0; transform: scale(0.6); }
+      30% { opacity: 0.9; transform: scale(1); }
+      60% { opacity: 0.6; transform: scale(0.85); }
+      100% { opacity: 0; transform: scale(0.6); }
+    }
+      to {
+        transform: translateY(120%);
+        opacity: 0.2;
+      }
+    
+      to {
+        transform: translateY(110%);
+        opacity: 0.2;
+      }
+    
+
+    /* extra comfort on very small devices */
+    @media (max-height: 560px) {
+      .card { aspect-ratio: auto; height: 90vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+
+    <div class="pattern">
+      <span style="top:10%;left:8%">✿</span>
+      <span style="top:20%;right:10%">❀</span>
+      <span style="bottom:28%;left:14%">✿</span>
+      <span style="bottom:18%;right:18%">❀</span>
+      <span style="top:52%;left:6%">✿</span>
+      <span style="top:62%;right:8%">❀</span>
+    </div>
+
+    <div class="screen open-screen">
+      <h1 class="title">Wedding Invitation</h1>
+      <div class="divider"></div>
+      <p class="info">With the blessings of elders</p>
+      <button class="btn" onclick="openInvite()">Open Invitation</button>
+    </div>
+
+    <div class="screen invite-screen">
+      <div class="couple"><span>SAKTHIVEL</span><br/><p style="font-size: 30px;">weds</p><span>RESHMA</span></div>
+      <div class="divider"></div>
+      <h2 class="subtitle">Save the Date</h2>
+      <p class="info date">06th February 2026</p>
+      <p class="info">Erode Mahal</p>
+      <p class="info">Erode</p>
+    </div>
+
+  </div>
+
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/15/audio_4ef98b29d4.mp3?filename=indian-classical-nadaswaram-style-140124.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function openInvite() {
+      document.querySelector('.open-screen').style.display = 'none';
+      document.querySelector('.invite-screen').style.display = 'flex';
+      document.getElementById('music').play();
+      startEffects();
+    }
+
+    let effectInterval;
+
+    function startEffects() {
+      const card = document.getElementById('card');
+      const symbols = ['✨','⭐','✦','✧'];
+
+      if (effectInterval) return;
+
+      effectInterval = setInterval(() => {
+        const spark = document.createElement('div');
+        spark.className = 'spark';
+        spark.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        spark.style.left = (Math.random() * 80 + 10) + '%';
+        const zones = [
+        {top: 5, height: 15},   // top border
+        {top: 80, height: 15},  // bottom border
+        {top: 30, height: 10},  // left mid
+        {top: 50, height: 10}   // right mid
+      ];
+      const zone = zones[Math.floor(Math.random() * zones.length)];
+      spark.style.top = (zone.top + Math.random() * zone.height) + '%';
+        spark.style.fontSize = (14 + Math.random() * 14) + 'px';
+        spark.style.animationDuration = (2 + Math.random() * 2) + 's';
+        card.appendChild(spark);
+
+        setTimeout(() => spark.remove(), 5000);
+      }, 300);
+    } 350;
+    
+  </script>
+
+</body>
+</html>
